@@ -1,18 +1,20 @@
-import Hero from "@/components/HeroSection"
-import NewArrivals from "@/components/LatestArrivalsSection"
-import TopSeeling from "@/components/TrendingProducts"
-import BrowseByStyle from "@/components/DressStyle"
-
+import HeroSection from "@/components/HeroSection"
+import LatestArrival from "@/components/LatestArrivalsSection"
+import TrendingProducts from "@/components/TrendingProducts"
+import DressStyle from "@/components/DressStyle"
+import Testimonials from "@/components/Testimonials"
 
 
 
 export default function Home(){
   return( 
     <div>
-      <Hero/>
-      <NewArrivals/>
-      <TopSeeling/>
-      <BrowseByStyle/>
+      <HeroSection/>
+      <LatestArrival/>
+      <TrendingProducts/>
+      <DressStyle/>
+      <Testimonials/>
+ 
     </div>
   )
 }
