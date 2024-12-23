@@ -1,15 +1,17 @@
 "use client";
 
-import { integralCF } from "@/app/ui/fonts";
-import { cn } from "@/lib/utils";
+import Link from "next/link";
 import Image from "next/image";
 import TopSproductOne from "@/assets/images/top-selling-green-shirt.png";
 import TopSproductTwo from "@/assets/images/top-selling-orange-tshirt.png";
 import TopSproductThree from "@/assets/images/top-selling-nikar-jeans.png";
 import TopSproductFour from "@/assets/images/top-seeeling-black-jeans.png";
+import { integralCF } from "@/app/ui/fonts";
+import { cn } from "@/lib/utils";
+
 import React, { useState } from "react";
 
-const TrendingProducts= () => {
+const TopSelling = () => {
   const [showAll, setShowAll] = useState(false);
 
   const toggleView = () => {
@@ -18,42 +20,50 @@ const TrendingProducts= () => {
 
   const products = [
     {
-      id: 1,
-      image: TopSproductOne,
+      id: 55,
+      images: TopSproductOne,
       name: "Verticals Stripped Shirt",
-      rating: "⭐⭐⭐⭐⭐",
+      rating: "★★★★",
       score: "4.5/5",
       price: "$120",
       discountedPrice: null,
     },
     {
-      id: 2,
-      image: TopSproductTwo,
+      id: 56,
+      images: TopSproductTwo,
       name: "Courage Graphic T-shirt ",
-      rating: "⭐⭐⭐⭐",
+      rating: "★★★",
       score: "3.5/5",
       price: "$260",
       discountedPrice: "$240 -20%",
     },
     {
-      id: 3,
-      image: TopSproductThree,
+      id: 57,
+      images: TopSproductThree,
       name: "Loose Fit Bermuda Shorts",
-      rating: "⭐⭐⭐⭐⭐",
+      rating: "★★★★",
       score: "4.5/5",
       price: "$180",
       discountedPrice: null,
     },
     {
-      id: 4,
-      image: TopSproductFour,
+      id: 58,
+      images: TopSproductFour,
       name: "Faded Skinny Jeans",
-      rating: "⭐⭐⭐⭐",
+      rating: "★★★★",
       score: "4.5/5",
       price: "$160",
       discountedPrice: "$130 -30%",
     },
   ];
+
+  interface ProductCardProps {
+    title: string;
+    price: number;
+    originalPrice?: number;
+    rating: number;
+    discount?: number;
+  }
 
   return (
     <section className="max-w-screen-2xl container mx-auto px-4 py-8 mt-16">
@@ -70,30 +80,32 @@ const TrendingProducts= () => {
           showAll ? "max-h-full" : "max-h-[500px] overflow-hidden"
         }`}
       >
-        {products.map((product) => (
-          <div key={product.id} className="p-4">
-            <Image
-              src={product.image}
-              alt={product.name}
-              className="w-full h-64 mb-4 rounded-xl object-cover"
-            />
-            <h3 className="text-xl font-semibold mb-2">{product.name}</h3>
+        {products.map((product2) => (
+          <div key={product2.id} className="p-4">
+            <Link href={`/product2/${product2.id}`}>
+              <Image
+                src={product2.images}
+                alt={product2.name}
+                className="w-full h-64 mb-4 rounded-xl object-cover"
+              />
+              <h3 className="text-xl font-semibold mb-2">{product2.name}</h3>
+            </Link>
             <div className="flex items-center mb-2">
-              <span className="text-yellow-400">{product.rating}</span>
+              <span className="text-yellow-400 text-xl">{product2.rating}</span>
               <span className="text-sm text-gray-500 ml-2">
-                {product.score}
+                {product2.score}
               </span>
             </div>
             <p
               className={`text-xl font-bold text-gray-800 ${
-                product.discountedPrice ? "line-through" : ""
+                product2.discountedPrice ? "line-through" : ""
               }`}
             >
-              {product.price}
+              {product2.price}
             </p>
-            {product.discountedPrice && (
+            {product2.discountedPrice && (
               <p className="text-xl font-bold text-red-500">
-                {product.discountedPrice}
+                {product2.discountedPrice}
               </p>
             )}
           </div>
@@ -102,7 +114,7 @@ const TrendingProducts= () => {
       <div className="text-center mt-8">
         <button
           onClick={toggleView}
-          className="px-6 py-2 font-semibold rounded-full border-2 bg-white hover:bg-slate-700 hover:text-white"
+          className="px-6 py-2 font-semibold rounded-full border-2 bg-white hover:bg-black hover:text-white"
         >
           {showAll ? "Show Less" : "View All"}
         </button>
@@ -111,4 +123,4 @@ const TrendingProducts= () => {
   );
 };
 
-export default TrendingProducts;
+export default TopSelling;

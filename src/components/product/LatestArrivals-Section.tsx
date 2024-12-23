@@ -1,15 +1,16 @@
 "use client";
 
-import { integralCF } from "@/app/ui/fonts";
-import { cn } from "@/lib/utils";
 import Image from "next/image";
 import ImageProductOne from "@/assets/images/new-arrivals-black-tshirt.png";
 import ImageProductTwo from "@/assets/images/new-arrivals-jeans.png";
 import ImageProductThree from "@/assets/images/new-arrivals-rb-shirt.png";
-import ImageProductFour from "@/assets/images/new-arrivals-malta-tshirt.png";
+import ImageProductFour from "@/assets/images/new-arrivals-malta-tshirt.png"
+import { integralCF } from "@/app/ui/fonts";
+import { cn } from "@/lib/utils";
+import Link from "next/link";
 import React, { useState } from "react";
 
-const LatestArrivalsSection = () => {
+const NewArrivals = () => {
   const [showAll, setShowAll] = useState(false);
 
   const toggleView = () => {
@@ -18,37 +19,37 @@ const LatestArrivalsSection = () => {
 
   const products = [
     {
-      id: 1,
+      id: 51,
       image: ImageProductOne,
       name: "T-shirt with Tape Details",
-      rating: "⭐⭐⭐⭐",
+      rating: "★★★★",
       score: "4.5/5",
       price: "$120",
       discountedPrice: null,
     },
     {
-      id: 2,
+      id: 52,
       image: ImageProductTwo,
       name: "Skinny Fit Jeans",
-      rating: "⭐⭐",
+      rating: "★★★",
       score: "3.5/5",
       price: "$260",
       discountedPrice: "$240 -20%",
     },
     {
-      id: 3,
+      id: 53,
       image: ImageProductThree,
       name: "Checkered Shirt",
-      rating: "⭐⭐⭐⭐",
+      rating: "★★★★",
       score: "4.5/5",
       price: "$180",
       discountedPrice: null,
     },
     {
-      id: 4,
+      id: 54,
       image: ImageProductFour,
       name: "Sleeve Striped T-shirt",
-      rating: "⭐⭐⭐⭐",
+      rating: "★★★★",
       score: "4.5/5",
       price: "$160",
       discountedPrice: "$130 -30%",
@@ -70,30 +71,32 @@ const LatestArrivalsSection = () => {
           showAll ? "max-h-full" : "max-h-[500px] overflow-hidden"
         }`}
       >
-        {products.map((product) => (
-          <div key={product.id} className="p-4">
-            <Image
-              src={product.image}
-              alt={product.name}
-              className="w-full h-64 mb-4 rounded-xl object-cover"
-            />
-            <h3 className="text-xl font-semibold mb-2">{product.name}</h3>
+        {products.map((product2) => (
+          <div key={product2.id} className="p-4">
+            <Link href={`/product2/${product2.id}`}>
+              <Image
+                src={product2.image}
+                alt={product2.name}
+                className="w-full h-64 mb-4 rounded-xl object-cover"
+              />
+              <h3 className="text-xl font-semibold mb-2">{product2.name}</h3>
+            </Link>
             <div className="flex items-center mb-2">
-              <span className="text-yellow-400">{product.rating}</span>
+              <span className="text-yellow-400 text-xl">{product2.rating}</span>
               <span className="text-sm text-gray-500 ml-2">
-                {product.score}
+                {product2.score}
               </span>
             </div>
             <p
               className={`text-xl font-bold text-gray-800 ${
-                product.discountedPrice ? "line-through" : ""
+                product2.discountedPrice ? "line-through" : ""
               }`}
             >
-              {product.price}
+              {product2.price}
             </p>
-            {product.discountedPrice && (
+            {product2.discountedPrice && (
               <p className="text-xl font-bold text-red-500">
-                {product.discountedPrice}
+                {product2.discountedPrice}
               </p>
             )}
           </div>
@@ -102,7 +105,7 @@ const LatestArrivalsSection = () => {
       <div className="text-center mt-8">
         <button
           onClick={toggleView}
-          className="px-6 py-2 font-semibold rounded-full border-2 bg-white hover:bg-slate-700 hover:text-white"
+          className="px-6 py-2 font-semibold rounded-full border-2 bg-white hover:bg-black hover:text-white"
         >
           {showAll ? "Show Less" : "View All"}
         </button>
@@ -111,4 +114,4 @@ const LatestArrivalsSection = () => {
   );
 };
 
-export default LatestArrivalsSection;
+export default NewArrivals;

@@ -1,4 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
- 
+@media (max-width: 640px) {
+    .flex {
+      gap: 1rem;  
+    }
+  }
+  

@@ -1,4 +1,5 @@
-import Image from "next/image";
+"use client"
+
 import MainimageHero from "@/assets/images/poss-style-dress-couple.png";
 import BimageVersac from "@/assets/images/brand-versace.png";
 import BimageZara from "@/assets/images/brand-zara.png";
@@ -7,12 +8,16 @@ import BimagePrada from "@/assets/images/brand-prada.png";
 import BimageCalvin from "@/assets/images/brand-calvin.png";
 import { integralCF } from "@/app/ui/fonts";
 import { cn } from "@/lib/utils";
+import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 export default function HeroSection() {
+  const router = useRouter();
+
   return (
-    <section className="bg-gray-100 py-12 px-2 md:px-12 lg:px-16 max-w-screen-2xl mx-auto ">
+    <section className="bg-gray-100 py-12 px-2 md:px-12 lg:px-16 max-w-screen-2xl mx-auto">
       <div className=" grid md:grid-cols-2 items-center gap-8 ">
-        {/* Left Content Section*/}
+        {/* Left Content */}
         <div className="text-center md:text-left">
           <h1
             className={cn(
@@ -23,16 +28,19 @@ export default function HeroSection() {
             FIND CLOTHES <br /> THAT MATCHES <br /> YOUR STYLE
           </h1>
           <p className="text-gray-600 text-start mt-4 text-lg">
-            Browse through our diverse range of meticulouslmty crafted garments,
+            Browse through our diverse range of meticulously crafted garments,
             designed to bring out your individuality and cater to your sense of
             style.
           </p>
-          <button className="mt-6 px-20 py-3 md:px-8 md:py-3 bg-black text-white rounded-full text-lg font-medium hover:bg-gray-800">
+          <button
+            onClick={() => router.push("/shop-btn-product")}
+            className="mt-6 px-20 py-3 md:px-8 md:py-3 bg-black text-white rounded-full text-lg font-medium hover:bg-gray-800"
+          >
             Shop Now
           </button>
 
-          {/* Stats content Section */}
-          <div className="mt-12 grid grid-cols-2   md:grid md:grid-cols-3 gap-4 text-center md:ml-[-40px] ">
+          {/* Stats Section */}
+          <div className="mt-12 grid grid-cols-2 md:grid md:grid-cols-3 gap-4 text-center md:ml-[-40px] ">
             <div>
               <h2 className="text-lg md:text-2xl font-bold text-gray-900">
                 200+
@@ -60,11 +68,11 @@ export default function HeroSection() {
           </div>
         </div>
 
-        {/* Right Content section*/}
+        {/* Right Content */}
         <div className="relative">
           {/* Image */}
           <Image src={MainimageHero} alt="Stylish Couple" width={800} height={1000} />
-          {/*New Div for Decorative Stars */}
+          {/* Decorative Stars */}
           <div className="absolute top-4 right-6 text-black">
             <StarIcon className="w-12 h-12" />
           </div>
@@ -74,41 +82,21 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* Brand and Logos Section */}
+      {/* Brand Logos Section */}
       <div className="bg-black py-6 w-full absolute inset-x-0 max-w-screen-2xl mx-auto">
-        <div className="flex flex-wrap justify-center items-center px-4 sm:px-8"> 
-
+        <div className="flex flex-wrap justify-center items-center px-4 sm:px-8">
+          {/* Logos */}
           <div className="w-20 sm:w-24 md:w-28 lg:w-32 xl:w-36 m-2">
-            <Image
-             src={BimageVersac} 
-             alt="Versace Logo" 
-             width={100} 
-             height={50} 
-            />
+            <Image src={BimageVersac} alt="Versace Logo" width={100} height={50} />
           </div>
           <div className="w-20 sm:w-24 md:w-28 lg:w-32 xl:w-36 m-2">
-            <Image 
-            src={BimageZara} 
-            alt="Zara Logo" 
-            width={100} 
-            height={50} 
-            />
+            <Image src={BimageZara} alt="Zara Logo" width={100} height={50} />
           </div>
           <div className="w-20 sm:w-24 md:w-28 lg:w-32 xl:w-36 m-2">
-            <Image 
-            src={BimageGucci} 
-            alt="Gucci Logo" 
-            width={100} 
-            height={50} 
-            />
+            <Image src={BimageGucci} alt="Gucci Logo" width={100} height={50} />
           </div>
           <div className="w-20 sm:w-24 md:w-28 lg:w-32 xl:w-36 m-2">
-            <Image
-             src={BimagePrada} 
-             alt="Prada Logo" 
-             width={100} 
-             height={50} 
-             />
+            <Image src={BimagePrada} alt="Prada Logo" width={100} height={50} />
           </div>
           <div className="w-20 sm:w-24 md:w-28 lg:w-32 xl:w-36 m-2">
             <Image
@@ -124,9 +112,7 @@ export default function HeroSection() {
   );
 }
 
-
-  {/* StarIcon Content */}
-
+{/* StarIcon Content */}
 function StarIcon({ className }: { className?: string }) {
   return (
     <svg
