@@ -1,8 +1,9 @@
-import Hero from "@/components/layout/Hero"
-import NewArrivals from "@/components/product/LatestArrivals-Section"
-import TopSeeling from "@/components/product/Trending-Products"
-import BrowseByStyle from "@/components/layout/DressStyle"
-import Testimonials from "@/components/layout/Testimonials"
+import Hero from "@/components/Hero"
+import NewArrivals from "@/components/product/NewArrivals"
+import TopSeeling from "@/components/product/TopSelling"
+import BrowseByStyle from "@/components/BrowseByStyle"
+import Testimonials from "@/components/CustomerReviews"
+ 
 
 export default function Home(){
   return( 
@@ -12,7 +13,7 @@ export default function Home(){
       <TopSeeling/>
       <BrowseByStyle/>
       <Testimonials/>
- 
+       
     </div>
   )
 }
