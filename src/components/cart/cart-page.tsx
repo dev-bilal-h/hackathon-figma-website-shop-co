@@ -5,9 +5,9 @@ import { CartItem } from './cart-item'
 import { OrderSummary } from './order-summary'
 import { integralCF } from '@/app/ui/fonts'
 import { cn } from '@/lib/utils'
-import Product1 from "@/assets/images/y-might-p2.png"
+import Product1 from "@/assets/images/g-g-t-shirt.webp"
 import Product5 from "@/assets/images/Red-blue-shirt.png"
-import Product4 from "@/assets/images/jeans.png"
+import Product4 from "@/assets/images/skiny-fit-jeans.jpg"
 
 
 const cartItems = [
